@@ -1,0 +1,41 @@
+version: "3"
+services:
+    krabbitmq:
+        hostname: krabbitmq
+        image: rabbitmq:latest
+        environment:
+            - RABBITMQ_DEFAULT_USER=guest
+            - RABBITMQ_DEFAULT_PASS=guest
+        ports:
+            - "5672:5672"
+    worker:
+        build:
+            context: .
+            dockerfile: celery.Dockerfile
+        depends_on:
+            - krabbitmq
+            - kredis
+    kredis:
+        hostname: kredis
+        image: redis:latest
+        ports:
+            - "6379:6379"
+    api:
+        build:
+            context: .
+            dockerfile: api.Dockerfile
+        volumes:
+            - ./shopping:/usr/src/shopping/
+        depends_on:
+            - worker
+        ports:
+            - "5000:5000"
+    flower:
+        build:
+            context: .
+            dockerfile: flower.Dockerfile
+        ports:
+            - 5555:5555
+        depends_on:
+            - krabbitmq
+            - kredis

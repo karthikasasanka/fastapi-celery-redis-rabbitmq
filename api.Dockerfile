@@ -1,5 +1,7 @@
 FROM python:3.8
 
+COPY ./shopping /usr/src/shopping
+
 COPY ./requirements-api.txt /usr/src/
 
 RUN pip3 install --upgrade pip

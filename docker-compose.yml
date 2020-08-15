@@ -9,9 +9,7 @@ services:
         ports:
             - "5672:5672"
     worker:
-        build:
-            context: .
-            dockerfile: celery.Dockerfile
+        image: karthikasasanka/shopping-celery:v1
         depends_on:
             - krabbitmq
             - kredis
@@ -21,9 +19,7 @@ services:
         ports:
             - "6379:6379"
     api:
-        build:
-            context: .
-            dockerfile: api.Dockerfile
+        image: karthikasasanka/shopping-api:v1
         volumes:
             - ./shopping:/usr/src/shopping/
         depends_on:
@@ -31,9 +27,7 @@ services:
         ports:
             - "5000:5000"
     flower:
-        build:
-            context: .
-            dockerfile: flower.Dockerfile
+        image: karthikasasanka/shopping-celery-flower:v1
         ports:
             - 5555:5555
         depends_on:

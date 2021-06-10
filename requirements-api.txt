@@ -2,7 +2,7 @@ amqp==2.6.0
 billiard==3.6.3.0
 celery==4.4.6
 click==7.1.2
-fastapi==0.58.1
+fastapi==0.65.2
 future==0.18.2
 gunicorn==20.0.4
 h11==0.9.0

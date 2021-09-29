@@ -3,9 +3,8 @@ services:
     krabbitmq:
         hostname: krabbitmq
         image: rabbitmq:latest
-        environment:
-            - RABBITMQ_DEFAULT_USER=guest
-            - RABBITMQ_DEFAULT_PASS=guest
+        volumes:
+            - "./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
         ports:
             - "5672:5672"
     worker:

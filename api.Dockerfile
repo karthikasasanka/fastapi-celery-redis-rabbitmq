@@ -10,4 +10,4 @@ RUN pip3 install -r /usr/src/requirements-api.txt
 
 WORKDIR /usr/src
 
-CMD gunicorn --bind 0.0.0.0:5000 shopping.main:app -w 4 -k uvicorn.workers.UvicornWorker --reload --access-logfile - --error-logfile - --log-level info
+CMD gunicorn --bind 0.0.0.0:5000 shopping.main:app -w 4 -k uvicorn.workers.UvicornWorker --access-logfile - --error-logfile - --log-level info

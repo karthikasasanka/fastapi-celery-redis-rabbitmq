@@ -17,3 +17,8 @@ swagger docs - `http://localhost:5000/`
 redoc - `http://localhost:5000/redoc`
 
 celery flower - `http://localhost:5555`
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)

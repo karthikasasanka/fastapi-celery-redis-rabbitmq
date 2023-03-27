@@ -10,7 +10,7 @@ httptools==0.1.1
 kombu==4.6.11
 pydantic==1.6.2
 pytz==2020.1
-redis==3.5.3
+redis==4.5.3
 starlette==0.13.4
 uvicorn==0.11.7
 uvloop==0.14.0
